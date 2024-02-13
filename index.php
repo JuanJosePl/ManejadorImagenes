@@ -1,6 +1,8 @@
 <?php 
 require "libs/Mysql.php";
 require "libs/Imagen.php";
+
+$titulo = "Manejador de imagenes";
 require "helper/encabezado.php";
 
 $archivos = Imagen::leerDirectorio();
@@ -21,9 +23,11 @@ $archivos = Imagen::leerDirectorio();
                 "fecha" => $archivo->getFilename(),
             ];
             $fotos_array[] = $foto;
-            print "<img id='' src='" . $img . "' height='80'/>";
+            print "<img id='selecciona' src='" . $img . "' height='80'
+             onClick = selecciona() />";
         }
     }
+    unset($archivos);
     ?>
 </div>
 <?php require "helper/piepagina.php"?>
